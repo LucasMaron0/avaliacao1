@@ -63,20 +63,7 @@ public class Main {
         System.out.println("Total de acertos: " + totalAcertos);
         System.out.println("Total de erros: " +   totalErros);
         
-       
-        
-        
-        
-        
-        
-       
-        
-        
-        
-        
-        
-        
-        
+   
     }
    
     public static void criaQuestao (String pergunta, String resposta){
