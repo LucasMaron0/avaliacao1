@@ -13,7 +13,9 @@ import java.util.Scanner;
  */
 public class Main {
     
-   static  ArrayList<Questao> questoes = new ArrayList();
+   // Array para armazenar questões. Objetos do tipo Questao possuem dois atributos
+   // a pergunta e a resposta, o Array foi declarado na Main para ter acesso em todos os métodos.
+    static  ArrayList<Questao> questoes = new ArrayList();
     
    
 
@@ -21,13 +23,18 @@ public class Main {
     public static void main(String[] args) {
         
         
+        //variáveis para contar total de erros/acertos, o código também pede um nome de usuário
+        
         int totalAcertos = 0;
         int totalErros = 0;
         String User;
         
        
+        
         Scanner respostaDigitada = new Scanner(System.in);
         
+        
+        // criando questões atráves do método criaQuestao, basta passar primeiramente a pergunta e depois a resposta correta.
         
         criaQuestao("Qual é a capital do RS?", "Porto Alegre");
         criaQuestao("Quanto é 5x7?", "35");
@@ -41,7 +48,9 @@ public class Main {
         User = respostaDigitada.nextLine();
         
         
-         
+        // laço para mostrar as questões, pegar o input do usuário e  dizer se ele acertou ou nao.
+        // se acertar soma +1 aos acertos, se errar, aos erros.
+        
         for (int i = 0; i <questoes.size(); i++){
             
             System.out.println(questoes.get(i).getPergunta());
@@ -59,6 +68,8 @@ public class Main {
         }
         
         
+        // depois de percorrer todas as questões, imprime os resultados.
+        
         System.out.println(User);
         System.out.println("Total de acertos: " + totalAcertos);
         System.out.println("Total de erros: " +   totalErros);
@@ -66,6 +77,8 @@ public class Main {
    
     }
    
+    // método que cria questao e a adiciona no array.
+    
     public static void criaQuestao (String pergunta, String resposta){
  
         Questao questao = new Questao (pergunta, resposta);
