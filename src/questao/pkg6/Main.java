@@ -96,10 +96,10 @@ public class Main {
         
         for (Questao q:questoes){
             
-            System.out.println(q.getCorrecao()+ " " + 
-                    q.getPergunta()+ " -- Respsota Correta: " +
-                    q.getResposta()+ " -- Sua resposta: "+
-                    q.getRespostaUser()+ "\n");
+            System.out.println(q.getCorrecao() +
+                    " " + q.getPergunta()+ 
+                    " -- Respsota Correta: " + q.getResposta()+
+                    " -- Sua resposta: " + q.getRespostaUser()+ "\n");
 
         }
         
