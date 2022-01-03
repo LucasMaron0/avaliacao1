@@ -23,10 +23,8 @@ public class Main {
     public static void main(String[] args) {
         
         
-        //variáveis para contar total de erros/acertos, o código também pede um nome de usuário
-        
-        int totalAcertos = 0;
-        int totalErros = 0;
+        //o código também pede um nome de usuário
+
         String User;
         
        
@@ -41,7 +39,7 @@ public class Main {
         criaQuestao("Qual a distância entra a Lua e a terra?", "384400km");
         criaQuestao("Qual a velocidade da luz (Km/s)?", "299.792");
         criaQuestao("Quanto é 15/3?", "5");
-        criaQuestao("Quanto é 95* 4", "380");
+        criaQuestao("Quanto é 95* 4?", "380");
         
         
         System.out.println("Qual o seu nome: ");
@@ -49,32 +47,37 @@ public class Main {
         
         
         // laço para mostrar as questões, pegar o input do usuário e  dizer se ele acertou ou nao.
-        // se acertar soma +1 aos acertos, se errar, aos erros.
-        
-        for (int i = 0; i <questoes.size(); i++){
+        // ao passar a resposta do usuário, a classe Questao define todo o resto (contabiliza acertos/erros, exibe o resutlado, etc)
+          
+        for (Questao q:questoes){
             
-            System.out.println(questoes.get(i).getPergunta());
+            System.out.println(q.getPergunta());
             String respostaUser = respostaDigitada.nextLine();
-            
-            if ( respostaUser.equals(questoes.get(i).getResposta())){
-                System.out.println("Acertou!\n");
-                totalAcertos++;
-      
-            }else {
-                System.out.println("errou\n");
-                totalErros++;
+            q.setRespostaUser(respostaUser);
+  
             }
     
-        }
-        
-        
+
         // depois de percorrer todas as questões, imprime os resultados.
         
         System.out.println(User);
-        System.out.println("Total de acertos: " + totalAcertos);
-        System.out.println("Total de erros: " +   totalErros);
+        System.out.println("Total de acertos: " + Questao.getTotalAcertos());
+        System.out.println("Total de erros: " +   Questao.getTotalErros());
+        System.out.println("\n\n");
         
-   
+        // pergunta se o usuário deseja ver o gabarito
+        
+        System.out.println("Deseja ver o gabarito? (s/n) ");
+        
+            if(respostaDigitada.nextLine().equals("s")){
+               
+                gabarito();
+            }else{
+                
+                System.out.println("Programa fechado...");
+            }
+                
+  
     }
    
     // método que cria questao e a adiciona no array.
@@ -86,6 +89,21 @@ public class Main {
  
     }
     
+    
+    // método para mostrar o gabarito (quais o usuario errou e as repostas certas)
+   
+    public static void gabarito(){
+        
+        for (Questao q:questoes){
+            
+            System.out.println(q.getCorrecao()+ " " + 
+                    q.getPergunta()+ " -- Respsota Correta: " +
+                    q.getResposta()+ " -- Sua resposta: "+
+                    q.getRespostaUser()+ "\n");
+
+        }
+        
+    }
     
     
 }
