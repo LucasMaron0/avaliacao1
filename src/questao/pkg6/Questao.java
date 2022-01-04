@@ -32,7 +32,7 @@ public class Questao {
         return respostaUser;
     }
 
-    //no setResposta, são contabilizados os acertos/erros, imprimido se o usuário acertou ou 
+    //no setRespostaUser, são contabilizados os acertos/erros, imprimido se o usuário acertou ou 
     //errou aquela questão e definida a variavel correcao, para mostrar quais estão corretas ou 
     //erradas sem precisar fazer mais comparações.
     
